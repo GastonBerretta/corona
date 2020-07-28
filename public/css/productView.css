@@ -1,0 +1,188 @@
+
+
+div.principal {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto 0 auto;
+    padding: 30px 30px 60px 30px;
+    border: #E5E5E5 solid;
+    border-radius: 15px;
+    border-width: 1px 1px 1px 0.5px;
+    background-color: white;
+}
+
+.nameProduct p{
+    margin-top: 10px;
+}
+
+div.imageProduct {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 50%;
+}
+
+
+div.nameProduct {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 50%;
+    align-self: start;
+    flex-direction: column;
+}
+
+
+#quantity{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    -moz-appearance: textfield;
+    border-radius: 10px;
+}
+
+#agregarCarrito {
+    display: block;
+    color: white;
+    height: 35px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 10px;
+    background: #55C24B;
+    border-width: 0px;
+    border-style: none;
+    padding: 0px 15px;
+    border-radius: 0px;
+}
+#agregarCarrito:hover{
+    background-color:#55A24B;
+}
+
+div.principal img {
+    width: 400px;
+    height: 400px;
+    padding: 1px;
+    border: #E5E5E5 solid;
+}
+div.otherProduct{
+    border: solid 1px #dedede;
+    border-radius: 7px;
+    padding: 7px;
+}
+
+div.related {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    margin: 10px auto;
+    justify-content: space-between;
+    padding: 20px;
+    border: #E5E5E5 solid;
+    border-radius: 15px;
+    border-width: 1px 1px 1px 0.5px;
+    background-color: white;
+}
+a.regresar{
+    width: 100%;
+    color:#55C24B
+}
+a.regresar:hover{
+    color:#92C24B
+}
+div.related h2{
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: #55C24B;
+    font-weight: bold;
+}
+div.related img {
+    width: 290px;
+    height: 200px;
+}
+div.edit{
+    display: none;
+    width: 100%; 
+    margin: 30px 0;
+ 
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+div.edit form {
+width: 80%;
+margin: auto;
+
+}
+div.edit h2{
+    text-align: center;
+}
+div.edit form input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+}
+div.edit button{
+    color: white;
+    border-color: #959595;
+    border-radius: 5px;
+    background-color: #004586;
+    padding: 8px 15px;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+div.edit textarea{
+    border: black solid 2px;
+}
+div.botonesAdmin{
+    display: flex;
+
+}
+div.otherProduct p{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: Ellipsis;
+    width: 290px;
+}
+div.botonesAdmin button{
+
+        color: white;
+        border-color: #959595;
+        border-radius: 5px;
+        background-color: #004586;
+       
+        font-size: 15px;
+        margin-top: 20px;
+        height: 30px;
+    
+}
+@media(max-width:1000px){
+    div.imageProduct{
+        width: 100%;
+    }
+    div.nameProduct{
+        width: 100%;
+    }
+}
+@media(max-width:767px){
+    div.related {
+        display: block; 
+        margin: auto;
+        text-align: center;
+    }
+
+    
+    div.principal img {
+        width: 200px;
+        height: 200px;
+    }
+
+}

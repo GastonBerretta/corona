@@ -1,0 +1,251 @@
+div.total{
+    max-width: 1200px;
+    width:100%;
+    margin: 0 auto;
+
+}
+div.contenedor-parcial-profile{
+    border-radius: 21px;
+
+    border: #E5E5E5 solid 1px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+
+    background-color: white;
+    margin-top: 20px;
+
+}
+div.compras{
+    margin-bottom:20px;
+}
+h2{
+    text-align: center;
+    display:block;
+}
+
+.showEdit {
+    display: none;
+    
+}
+#todoJunto{
+border: solid 1px #004586;
+border-radius: 10px;
+margin-bottom: 10px;
+padding: 5px;
+}
+
+#infoProductos{
+    border: solid #004586 1px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 15px auto;
+    padding: 10px;
+}
+
+div.contenido{
+    width: 100%; 
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+div.contenido form {
+width: 80%;
+
+}
+div.contenido form input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+}
+div.contenido button.boton,button.edicionUsuario{
+    color: white;
+    border-color: #959595;
+    border-radius: 5px;
+    background-color: #004586;
+    padding: 8px 15px;
+    font-size: 18px;
+    margin-top: 15px;
+}
+textarea{
+    border: black solid 2px;
+}
+div.contenido input.image{
+    margin: 0 0 15px -8px;
+}
+div.informacion{
+    display:flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    margin-bottom:50px;
+}
+img#avatar{
+    width: 100%;
+    height: 100%;
+}
+
+    
+div.informacion div{
+    width:65%;
+}
+
+#profileButtons{
+    background-color:#004586;
+    padding: 2px 4px;
+    text-align: center;
+    display: inline-block;
+    margin: 1px 5px;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+    color: white;
+    padding: 5px;
+}
+#profileButtons:hover{
+    background-color: white;
+    color: black;
+}
+div.address-form {
+    background-color: white;
+    border: 1px solid #E5E5E5;
+    width: 500px;
+    max-width: 80%;
+    position: fixed;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    padding:10px;
+    border-radius: 15px;
+    transition: 200ms ease-in-out;
+    display:none;
+}
+div.form-header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:80%;
+    margin:0 auto;
+}
+div.form-header button{
+    border: none;
+    background: none;
+    outline: none;
+    cursor:pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+div.form-title{
+    color:#959595;
+    font-size: 1rem;
+
+}
+.datosDirecciones{
+    border-top: 1px solid #E5E5E5;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.add-address-button{
+    margin-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+form#addAddress {
+    width:80%;
+    margin:0 auto;
+}
+form#addAddress div {
+width:100%;
+}
+form div.uno{
+    position:relative;
+}
+form div.tres{
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+}
+form div.tres input{
+    width: 30%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+form div.uno input{
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+div.buttons button{
+    color: white;
+    border-color: #959595;
+    border-radius: 5px;
+    background-color: #004586;
+   
+    padding: 8px 15px;
+    font-size: 18px;
+}
+div.buttons button:hover{ 
+    box-shadow: inset 0 0 20px rgba(49, 138, 172, 0.5), 0 0 20px rgba(49, 138, 172, 0.4);
+    outline-color: #004586
+        
+}
+div#overlay{
+    position:fixed;
+    display:none;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.4);
+    /* pointer-events: none; */
+    transition: 200ms ease-in-out
+
+}
+i.derecha{
+    position: absolute;
+    top: 12px;
+    right:10px;
+    color:green;
+    display:none;
+}
+i.medio{
+    position: absolute;
+    top: 12px;
+    right:144px;
+    color:green;
+    display:none;
+}
+i.izquierda{
+    position: absolute;
+    top: 12px;
+    left:88px;
+    color:green;
+    display: none;
+}
+div.datosDirecciones{
+    display: flex;
+}
+div.calle{
+    width: 60%;
+}
+div.botonesAddres{
+    width: 40%;
+    display: flex;
+    
+}
+div.botonesAddres form{
+    width: 15%;
+}
+p.no-addresses {
+    margin-left:20px;
+}

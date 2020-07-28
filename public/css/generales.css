@@ -1,0 +1,27 @@
+
+* {
+    box-sizing: border-box;
+}
+
+ul, ol {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    background-color: hsl(0, 0%, 98%);
+    margin:0;
+}
+p,h1,h2,h3,h4,h5,h6,li,a,label,input,textarea{
+    font-family: 'Opens Sans', sans-serif;
+}
+
+

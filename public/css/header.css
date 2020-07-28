@@ -1,0 +1,196 @@
+header div.header-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width:1200px;
+    margin: 0 auto;
+    justify-content: flex-end;
+    align-items: center;
+}
+header form, header form button {
+    width: 100px;
+}
+header div.logo:first-child{
+    margin-right: auto;
+}
+header{
+    background-color:#004586;
+    opacity: 0.7;
+}
+#contador{
+ margin-left: 5px;
+ color:#55C24B;
+ font-weight: bold;
+}
+
+div.header-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 4px 2px;
+}
+
+div.header-container li {
+    padding: 3px;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    font-size: 15px;
+    
+}
+
+.boton-menu {
+    background-color:#004586;
+    padding: 2px 4px;
+    text-align: center;
+    display: inline-block;
+    margin: 1px 5px;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    width: 100%;
+    cursor:pointer;
+}
+
+.boton-menu:hover{
+    background-color: white;
+    color: black;
+
+}
+
+
+div.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:3px;
+    width:70px;
+}
+div.logo img {
+    width: 100%;
+}
+
+div.header-container button img {
+    width: 100%;
+}
+div.header-container button {
+    width: 30px;
+    border: none;
+}
+.header-container ul li img{
+    width:20px;
+}
+
+div.header-container div.logo a{
+    display: flex;
+    align-items: center;
+}
+
+#botonMenu{
+    display:none;
+}
+.desaparecer{
+    display:none;
+}
+header label{
+    flex-wrap: wrap;
+}
+header label:hover{ 
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+.menu ul{
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.menu, header label{ display: none}
+
+
+
+form button.cerrar-sesion{
+    width:100%;
+    background-color:#004586;
+    font-family: 'Open Sans', sans-serif;
+    color:white;
+    display:inline-block;
+    font-size: 15px;
+    padding: 0 0 5px 0;
+}
+
+form.boton-menu:hover ~ button.cerrar-sesion{
+    color: black;
+    background-color: white;
+
+}
+header form {
+    width: 100%;
+}
+li input.buscador{
+    width: 24vw;
+    border-radius: 15px;
+    display: none;
+    outline: none;
+    font-size: 15px;
+    padding: 1px 0 5px 4px
+}
+
+/* MediaQuery Mobile */
+@media(max-width:610px){
+    header div.logo{
+        order:-1;
+    }
+    li input.buscador {
+        width: 45vw;}
+    header div.titles-2{
+        order:1; 
+        width:100%;
+    }
+    header div.titles-2 ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        display:none;
+  
+    }
+    header div.imagenes{
+        order:0;
+    }
+
+    header label{
+      border-radius: 4px;
+      display: inline-block;
+      margin: 1px 5px;
+      padding: 2px 4px;
+
+    }
+    
+    .desaparecer{
+        display:block;
+        
+    }
+    #botonMenu{
+        display: none;
+    }
+    header label img{
+        width: 25px;
+    }
+    .menu{
+        position: absolute;
+       
+        top: 65px;
+        background-color:#004586;
+    }
+    
+    #botonMenu:checked ~.menu{
+        margin: 0;
+        display: block;
+    }
+#ulImage{align-items: center;}
+
+}

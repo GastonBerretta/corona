@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('./partials/head.ejs') %>
+    <title>Farmacia - Home</title>
+    <link rel="stylesheet" href="/css/carrito.css">
+</head>
+
+<body>
+    <%-include('./partials/header.ejs') %>
+    <div class="carrito-total">
+        <h2 class="shopping-title"> SHOPPING BAG</h2>
+        <div class="vistas-de-productos">
+            <% let subtotal=0 %>
+            <% if (typeof(cartProducts) !='undefined'){%>
+                <% if (cartProducts.length == 0) { %>
+                 <h3 class="noProducts" >No posee productos en el carrito</h3>
+                <% } %>
+            <% cartProducts.forEach(cartProduct => { %>
+            <div class="vista-de-producto">
+                <div class="producto-elegido">
+                    <div class="foto-producto">
+                        <img class="producto-elegido-img " src="/images/products/<%= cartProduct.product.image %>"
+                            alt="Foto del producto">
+                    </div>
+                </div>
+                <div class="info-producto">
+                    <p><b> <%= cartProduct.productName %> </b></p>
+                    <p><%= cartProduct.product.description %> </p>
+                    <p id="cantidadProducto">Cantidad : <%= cartProduct.quantity %> </p>
+                </div>
+                <div class="precio-producto">
+                    <p>$<%= cartProduct.price %> </p>
+                </div>
+                <div class="contenedor-contador-de-producto">
+
+                    <!-- <div class="contador-total">
+                        <button class="boton">-</button>
+                        <input type="tel" value="1" class="contador">
+                        <button class="boton">+</button>
+                    </div> -->
+                    
+                <form action="/cart/product?_method=DELETE" method="POST">
+                    <input type="hidden" name="cartProductId" value="<%=cartProduct.id %>">
+                    <button class="boton">Eliminar</button>
+                </form>
+                    <% subtotal+= cartProduct.totalPrice %> 
+                </div>
+            </div>
+            <% }) %>
+            <%}%>
+ 
+        </div>
+        <% if (typeof(cartProducts) !='undefined'  ){%>
+            <% if (cartProducts.length != 0) { %>
+                <div class="informacion-de-productos-precios">
+                    <div class="partesuperior">
+                    <article>      
+                        <p>Subtotal : $<%= subtotal %> </p>
+                        <br>
+                        
+                        <p>Envio : $200
+                        </p><br>
+                        <p>Total : $<%= subtotal + 200 %>
+                            
+                        </p>
+                        <br>
+                   
+                </div>
+                <div class="comprarboton"> 
+                    <form action="/cart/toBuy" method="POST">  
+                      <button class="comprar">Comprar</button>
+                    </form>
+                </article></div>
+                </div>
+                <div id="claseLoca">
+                <a href="/category/3" id="seguiComprando">Seguir comprando</a>
+                </div>
+            <% } %>
+       
+            <% } %> 
+    </div>
+    </section>
+    <%-include('./partials/footer.ejs') %>
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs')%>
+    <title>Farmacia - Registrate</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <%- include('../partials/header.ejs')%>
+    <div class='login-register-container'>
+        <div class='register-form'>
+            <h2>Iniciar Sesión</h2><br>
+            <form class='register' action="/user/login" method="POST">
+                <input type="email" name='emaillogin' class='cien' placeholder="Email" value=' <%=typeof(oldS)!='undefined'? oldS.email: ''%> '><br>
+                <% if(typeof errors != 'undefined'){ %>
+                    <%	if(errors.emaillogin){ %>
+                        <p class="errores" style="color: red; font-size: 13px"><%= errors.emaillogin.msg %></p>
+                    
+                    <%	} %>
+                <% } %>
+                <input type="password" name='passwordlogin' class='cien' placeholder='Contraseña'><br>
+                
+                <div class="box">
+                <input type="checkbox" name="remember" id="remember">  <br><br>
+                <span></span>
+                </div>
+                <button type='submit'>Iniciar Sesión</button>
+                <p id="recordarmeBoton">Recordarme</p>
+            </form>
+        </div>
+        <div class='register-form'>
+            <h2>Registrate con tus datos</h2><br>
+            <form class='register' action="/user/register" method="POST">
+                <% if(typeof errors != 'undefined'){ %>
+                <%	if(errors.nombre){ %>
+                <p class="errores" style="color: red; font-size: 13px">
+                    <%= errors.nombre.msg %>
+                </p>
+                <%	} %>
+                <% } %>
+                <input type="text" name='name' class='cien' placeholder='Nombre' 
+                value='<%=typeof(old)!='undefined'? old.name : ""%>'><br>
+                
+                <% if(typeof errors != 'undefined'){ %>
+                <%	if(errors.apellido){ %>
+                <p class="errores" style="color: red; font-size: 13px">
+                    <%= errors.apellido.msg %>
+                </p>
+                <%	} %>
+                <% } %>
+                <input type="text" name='surname' class='cien' placeholder="Apellido" value='<%=typeof(old)!='undefined'? old.surname:"" %>'><br>
+                
+                <% if(typeof errors != 'undefined'){ %>
+                    <%	if(errors.email){ %>
+                        <p class="errores" style="color: red; font-size: 13px">
+                         <%= errors.email.msg %> 
+                        </p> 
+                    <%	} %>
+                <% } %>
+                <input type="email" name='email' class='cien' placeholder="Email" value=' 
+                <%=typeof(old)!='undefined'? old.email: ''%> '><br>
+                
+                <% if(typeof errors != 'undefined'){ %>
+                    <%	if(errors.password){ %>
+                        <p class="errores" style="color: red; font-size: 13px"><%= errors.password.msg %></p>
+                    
+                    <%	} %>
+                    <% } %>
+                <input type="password" name='password' class='cien' placeholder='Contraseña'><br>
+               
+                <% if(typeof errors != 'undefined'){ %>
+                    <%	if(errors.passwordR){ %>
+                        <p class="errores" style="color: red; font-size: 13px">
+                         <%= errors.passwordR.msg %>
+                        </p> 
+                    <%	} %>
+                <% } %>
+                <input type="password" name='passwordR' class='cien' placeholder="Repetir Contraseña"><br>
+         
+                <button type='submit'>Crear Usuario</button>
+                
+                <p class='terminos-condiciones'>*Al hacer click en "Crear Usuario" estas aceptando los terminos y
+                condiciones de Farmacia. <a href="">Para ver los términos y condiciones haga click acá.</a></p>
+            </form>
+        </div>
+        <div style = 'background-color:transparent; width:100%;'>
+        </div>
+        
+    </div>
+
+    <%- include('../partials/footer.ejs')%>
+</body>
+
+</html>

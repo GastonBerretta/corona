@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <%-include('../partials/head.ejs') %>
+
+    <link rel="stylesheet" href="/css/profile.css">
+    <script src="/js/profile.js"></script>
+    <title>Farmacia - <%= user.name%> <%= user.surname %></title>
+</head>
+
+<body>
+    <%-include('../partials/header.ejs') %>
+    <div class="total">
+
+
+        <div class="contenedor-parcial-profile">
+            <h2 style="color:  #55C24B;"> Datos personales </h2>
+            <div class="informacion">
+                <div style="width: 370px; height: 370px;"> 
+                <img id='avatar' src="/images/avatars/<%= user.avatar %>" alt="">
+            </div>
+                <div>
+                    <h3>Nombre</h3>
+                    <p><%=user.name %> <%=user.surname%> </p>
+                    <h3>Email </h3>
+                    <p><%=user.email %></p>
+
+
+                    <h3>Descripcion</h3>
+                    <p><%=user.description %></p>
+                    <button type="button" class="edicionUsuario">Editá tu usuario</button>
+                </div>
+
+
+            </div>
+
+            <div class="showEdit">
+                <div class="contenido">
+                    <form method="POST" action="/user/profile/edit" enctype="multipart/form-data">
+                        <input type="text" name="name" placeholder="Editá tu nombre" value="<%= user.name %>"> <br>
+                        <input type="text" name="surname" placeholder="Apellido" value="<%= user.surname %>"> <br>
+                        <input type="email" name="email" placeholder="Email" value="<%= user.email %>" disabled> <br>
+                        <textarea name="description" id="" cols="30" rows="10"
+                            placeholder="Agregá una descripción !"><%= typeof(user.description) == undefined ? null: user.description%></textarea>
+                        <br>
+                        <input type="file" class="image" name="avatar"> <br>
+                        <button type="submit" class="boton">Enviar</button>
+                        <button type="button" class="cancelar boton">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contenedor-parcial-profile">
+            <h2 style=" color:#55C24B">Direcciones</h2>
+            <% if (user.addresses.length == 0) { %>
+            <p class='no-addresses'>No tiene direcciones registradas...</p>
+            <% }else{ %>
+            <% user.addresses.forEach(address => { %>
+            <div class="datosDirecciones">
+                <div class="calle">
+                    <i class="fas fa-house-user">&nbsp<%= address.street %> <%= address.number %> &nbsp <%= address.apartment==undefined? '':address.apartment %> &nbsp <%= address.municipality %></i>
+                </div>
+                <div class="botonesAddres">
+                    <form action="/user/address/edit/<%= address.id %> ">
+                        <button class='edit-button' id="profileButtons" type="submit">Editar</button>
+                    </form> 
+                    <form action="/user/address?_method=DELETE" method="POST">
+                        <input name='idAddress' type="hidden" value='<%= address.id %>' >
+                        <button id="profileButtons">Eliminar</button>
+                    </form>
+                    
+                </div>
+
+            </div>
+            
+
+            <% }) %>
+            <%}%>
+            <br>
+            <div style="margin-left: 20px; margin-bottom: 20px;">
+            <button id="profileButtons" class='add-address-button' type='button'>Agregar direccion</button>
+            </div>
+        </div>
+
+
+
+
+        <div class="contenedor-parcial-profile compras">
+            <h2 style="color:  #55C24B;">Compras</h2>
+            <% if (orders.length == 0) { %>
+                <p>No tiene compras realizadas...</p>
+                <% }else{ %>
+                <% orders.forEach(order => { %>
+                   <div id="infoProductos">
+                       
+                       <h3>Compra el día : <%= new Date(order.createdAt).toLocaleDateString() %> </h3><br>
+                       
+                       <% order.cart.forEach(cartProduct => { %>
+                        <div id="todoJunto">
+                        <p > Nombre del producto : <%= cartProduct.productName %> </p><br>
+                        <p > Cantidad de productos comprados : <%= cartProduct.quantity %> </p><br>
+                        </div>
+                       <% }) %>
+                   </div>
+                 <% }) %>
+                 <%}%>   
+        </div>
+
+    </div>
+
+    <div class='address-form'>
+        <div class='form-header'>
+            <div class="form-title"><h2>Nueva Direccion</h2></div>
+            <button class='cancel-address-form'>&times;</button>
+        </div>
+        <form id="addAddress" action="/user/address" method='POST'>
+            <div class='uno'>
+                <input type="text" name='street' placeholder="Calle">
+                <i class="fas fa-check-circle derecha" id='street'></i>
+            </div>
+            <div class='tres'>
+                <input type="number" name='number' placeholder="Numero">
+                <input type="number" name='PC' placeholder="CP">
+                <input type="text" name='apartment' placeholder="Departamento">
+                <i id='apartment' class="fas fa-check-circle derecha"></i> 
+                <i id='PC' class="fas fa-check-circle medio"></i>
+                <i id='number' class="fas fa-check-circle izquierda"></i>
+            </div>
+
+            <div class='uno'>
+                <input type="text" name='province' placeholder="Provincia"><i id='province' class="fas fa-check-circle derecha"></i>
+            </div>
+            <div class='uno'>
+                <input type="text" name='municipality' placeholder="Localidad"><i id='municipality' class="fas fa-check-circle derecha"></i>
+            </div>
+            <div class='uno'>
+                <textarea name="description"  cols="30" rows="2" placeholder="Descripcion adicional"></textarea>
+                <i id='description' class="fas fa-check-circle derecha"></i>
+            </div>
+
+
+
+            <input type="integer" value='<%= user.id %> ' name='id' hidden>
+            <div class="buttons">
+                <button type="submit">Agregar</button>
+            </div>
+
+            </form>
+        </div>
+
+        <div id='overlay'>
+
+        </div>
+
+        <%-include('../partials/footer.ejs') %>
+
+</body>
+
+</html>

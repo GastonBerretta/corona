@@ -1,0 +1,154 @@
+div.register-form { 
+background-color: white;
+width:100%;
+max-width: 540px;
+margin:30px 0;
+border:#E5E5E5 solid 1px;
+border-radius: 15px;
+}
+form.register{
+    margin: 0 auto;
+    width:75%;
+}
+form.register input.cien {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+div.register-form h2{ 
+text-align: center;
+font-family: 'Open Sans', sans-serif;
+color: gray;
+opacity: 0.8;
+margin:0;
+padding: 10px;
+padding-bottom: 3px;
+}
+form.register select,form.register button {
+    margin-bottom: 10px;
+    padding: 8px;
+}
+form.register button{
+    border-radius: 6px;
+}
+
+div.register-form p.terminos-condiciones{
+    font-family: 'Open Sans', sans-serif;
+    font-size: x-small;
+    text-align: left;
+    margin-top: 3px;
+}
+div.login-register-container {
+    display: flex;
+    justify-content: space-between;
+    max-width:1200px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin:auto;
+    min-height: 80vh;
+}
+div.login-register-container button{
+    color: white;
+    border-color: #959595;
+    border-radius: 5px;
+    background-color: #004586;
+   
+    padding: 8px 15px;
+    font-size: 18px;
+}
+div.login-register-container button:hover{ 
+    box-shadow: inset 0 0 20px rgba(49, 138, 172, 0.5), 0 0 20px rgba(49, 138, 172, 0.4);
+    outline-color: #004586
+        
+}
+.box{
+    transform: translate(150px,150px);
+    position: relative;
+    width: 20%;
+    height: 43px;
+    border: 2px solid #dedede;
+    border-radius: 50px;
+}
+.box input{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.box span{
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    width: 35px;
+    height: 35px;
+    z-index: -1;
+    border-radius: 50px;
+    transition: all 0.4s;
+    background-color: rgba(49, 138, 172, 0.4);
+}
+.box input:checked ~ span{
+    transform: translateX(100%) scale(1);
+    background-color: #004586;
+}
+
+#recordarmeBoton {
+    padding-top: 65px;
+    margin-left: 24px;
+}
+
+/* MediaQuery tablet */
+@media (max-width:1150px){
+    div.register-form { 
+        width:47%;
+        margin:30px 0;
+    }
+    div.register-form h2{ 
+        font-size: 20px;
+    }
+    div.login-register-container{
+        padding: 0 25px;
+    }
+    .box{ 
+        position: absolute;
+        width: 7%;
+    }
+    #recordarmeBoton{
+        padding-top:108px
+    }
+}
+@media(max-width:1110px)
+{
+    .box {
+        border: none;
+    }
+    .box input:checked~span {
+        transform: none;
+        background-color: #004586;
+    }
+}
+
+@media (max-width:550px){
+    div.register-form{
+        width: 100%;
+    }
+    #recordarmeBoton{
+        margin-bottom: 20px;
+    }
+}
+
+/* MediaQuery Mobile */
+@media(max-width:425px){
+    div.login-register-container{
+        flex-direction: column;
+        padding:0px;
+    }
+     div.register-form { 
+        width:100%;
+        margin:15px auto;
+    }
+    div.register-form h2{ 
+        font-size: 20px;
+    }
+    }
