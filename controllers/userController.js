@@ -176,6 +176,26 @@ const userController = {
         .then(function(newAddress){
             return res.redirect('/user/profile');
         })
+    },
+    changeGet: function(req,res){
+        res.render("user/change")
+    },
+    change: function(req,res){
+        const errors = validationResult(req);
+        if (errors.isEmpty()){
+            User.update({
+                password:bcrypt.hashSync(req.body.newPassword, 10)
+            },{
+                where:{
+                    id:req.session.user.id
+                }
+            })
+            .then(function(E){
+                return res.redirect("/")
+            })
+        }
+        return res.render('user/change', { errors: errors.mapped()})
+        
     }
 
 }

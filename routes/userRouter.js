@@ -38,6 +38,8 @@ router.delete('/address', authMiddleware, userController.destroyAddress);
 
 router.get('/address/edit/:id', userController.formAddress);
 router.put('/address/edit', userController.editAddress);
+router.get('/profile/change', userController.changeGet);
+router.post('/profile/change',validator.change, userController.change); 
 
 
 module.exports = router;

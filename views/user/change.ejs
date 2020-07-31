@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="/css/addProduct.css">
+<head>
+    <%-include('../partials/head.ejs') %>
+
+    <link rel="stylesheet" href="/css/profile.css">
+    <script src="/js/profile.js"></script>
+    <title>Farmacia - <%= user.name%> <%= user.surname %></title>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs')%>
+    <div class="contenedor-total"  >
+        <h1 style="color: #55C24B;">
+            Cambio de Contraseña
+        </h1>
+        <div class="contenedor-parcial" style="height: 60vh;padding-top: 10vh;" >
+            <form action="/user/profile/change" method="post">
+                
+                <% if(typeof errors != 'undefined'){ %>
+                    <%	if(errors.password){ %>
+                    <p class="errores" style="color: red; font-size: 13px">
+                        <%= errors.password.msg %>
+                    </p>
+                    <%	} %>
+                    <% } %>
+                <input type="password" placeholder="Contraseña actual" name="password"><br>
+                
+                <% if(typeof errors != 'undefined'){ %>
+                    <%	if(errors.newPassword){ %>
+                    <p class="errores" style="color: red; font-size: 13px">
+                        <%= errors.newPassword.msg %>
+                    </p>
+                    <%	} %>
+                    <% } %>
+                <input type="password" placeholder="Nueva Contraseña" name="newPassword"><br>
+                
+                <% if(typeof errors != 'undefined'){ %>
+                    <%	if(errors.newPasswordR){ %>
+                    <p class="errores" style="color: red; font-size: 13px">
+                        <%= errors.newPasswordR.msg %>
+                    </p>
+                    <%	} %>
+                    <% } %>
+                <input type="password" placeholder="Repetir contraseña" name="newPasswordR"><br>
+                <button type="submit" class="enviar">Cambiar</button>
+            </form>
+        </div>
+    </div>
+    <%-include('../partials/footer.ejs') %>
+</body>
+
+</html>
